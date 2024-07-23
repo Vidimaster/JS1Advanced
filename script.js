@@ -115,6 +115,19 @@ function getObjByName(val, tab) {
     return res;
 }
 
+function getByValueFromMap(map, searchValue) {
+    let res;
+    for (let [key, value] of map.entries()) {
+        value.forEach(element => {
+            if (element === searchValue) {
+                res = key;
+            }
+        });
+
+    }
+    return res;
+}
+
 const myMapPeopleFood = new Map();
 let objToInsert = [];
 for (let i = 0; i <= Object.keys(People).length - 1; i++) {
@@ -158,19 +171,6 @@ for (let index = 0; index < objToInsert.length; index++) {
 }
 
 console.log(myMapOrders);
-
-function getByValueFromMap(map, searchValue) {
-    let res;
-    for (let [key, value] of map.entries()) {
-        value.forEach(element => {
-            if (element === searchValue) {
-                res = key;
-            }
-        });
-
-    }
-    return res;
-}
 
 for (let index = 0; index < myMapOrders.get(Customers[0]).length; index++) {
     console.log(myMapOrders.get(Customers[0])[index]);
